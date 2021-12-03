@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_unnecessary_containers, duplicate_ignore
-
 import 'package:flutter/material.dart';
 import 'package:wadah_kopi/shared/theme.dart';
 
@@ -11,9 +9,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  @override
-  Widget build(BuildContext context) {
-    int _gender = 0;
+  int _gender = 0;
   void _handleRadioValueChange(int? value) {
     setState(() {
       _gender = value!;
@@ -26,6 +22,9 @@ class _ProfilePageState extends State<ProfilePage> {
       }
     });
   }
+
+  @override
+  Widget build(BuildContext context) {
     PreferredSize header() {
       return PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
@@ -48,7 +47,7 @@ class _ProfilePageState extends State<ProfilePage> {
           actions: [
             IconButton(
               icon: Icon(
-                Icons.check,
+                Icons.border_all_rounded,
                 color: primaryColor,
               ),
               onPressed: () {},
@@ -147,6 +146,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const SizedBox(height: 20),
+            // ignore: avoid_unnecessary_containers
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,6 +176,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const SizedBox(height: 20),
+            // ignore: avoid_unnecessary_containers
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,9 +219,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-                Row(
-                  children: [
-                    Row(
+                Row(children: [
+                  Row(
                     children: [
                       Radio(
                         value: 0,
@@ -252,8 +252,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ],
                   ),
-                  ]
-                ),
+                ]),
               ],
             ),
           ],

@@ -211,8 +211,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
     Widget tacButton() {
       return GestureDetector(
-        onTap: () 
-        => Navigator.pushNamed(context, '/signIn'),
+        onTap: () => Navigator.pushNamed(context, '/signIn'),
         child: Container(
           margin: const EdgeInsets.only(
             top: 50,

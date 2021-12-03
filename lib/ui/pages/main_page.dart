@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:wadah_kopi/shared/theme.dart';
+import 'package:wadah_kopi/ui/pages/product_list_page.dart';
 import 'package:wadah_kopi/ui/pages/home_page.dart';
+import 'package:wadah_kopi/ui/widget/product_grid.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -11,14 +13,8 @@ class MainPage extends StatefulWidget {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    ProductListPage(),
+    ProductGrid(),
   ];
 
   @override
@@ -36,7 +32,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: primaryColor,
       body: Center(

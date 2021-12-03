@@ -92,8 +92,7 @@ class SignInPage extends StatelessWidget {
 
     Widget tacButton() {
       return GestureDetector(
-        onTap: () 
-        => Navigator.pushNamed(context, '/editProfile'),
+        onTap: () => Navigator.pushNamed(context, '/editProfile'),
         // => Navigator.pushNamed(context, '/register'),
         child: Container(
           margin: const EdgeInsets.only(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wadah_kopi/ui/pages/change_password_page.dart';
 import 'package:wadah_kopi/ui/pages/home_page.dart';
 import 'package:wadah_kopi/ui/pages/main_page.dart';
+import 'package:wadah_kopi/ui/pages/product_list_page.dart';
 import 'package:wadah_kopi/ui/pages/profile_page.dart';
 import 'package:wadah_kopi/ui/pages/register_page.dart';
 import 'package:wadah_kopi/ui/pages/sign_in_page.dart';
@@ -25,6 +26,8 @@ class MyApp extends StatelessWidget {
       '/changePassword': (context) => const ChangePasswordPage(),
       '/editProfile': (context) => const ProfilePage(),
       '/home': (context) => const HomePage(),
+      '/productList1': (context) => const ProductListPage(),
+
     }
     );
   }
