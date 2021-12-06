@@ -234,7 +234,7 @@ class HomePage extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, '/productList1'),
+                  onTap: () => Navigator.pushNamed(context, '/productList'),
                   child: Row(
                     children: [
                       Text(

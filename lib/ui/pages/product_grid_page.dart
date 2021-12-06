@@ -1,13 +1,19 @@
-// ignore_for_file: must_be_immutable, prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
 import 'package:wadah_kopi/shared/theme.dart';
-import 'package:wadah_kopi/ui/widget/product_tile.dart';
+import 'package:wadah_kopi/ui/widget/product_grid.dart';
+// import 'package:wadah_kopi/ui/widget/product_grid.dart';
 
-class ProductListPage extends StatelessWidget {
-  const ProductListPage({Key? key}) : super(key: key);
+class ProductGridPage extends StatelessWidget {
+  const ProductGridPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    // var size = MediaQuery.of(context).size;
+    // final double itemHeight = (size.height - kToolbarHeight - 10) / 2;
+    // final double itemWidth = size.width / 2;
+
     PreferredSize appBar() {
       return PreferredSize(
         preferredSize: const Size.fromHeight(55.0),
@@ -34,7 +40,7 @@ class ProductListPage extends StatelessWidget {
                     fillColor: Colors.grey,
                     hintText: 'What are you craving?',
                     isDense: true,
-                    contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                     hintStyle: secondaryTextStyle.copyWith(
                       fontSize: 14,
                       fontWeight: light,
@@ -49,11 +55,11 @@ class ProductListPage extends StatelessWidget {
               actions: [
                 IconButton(
                   icon: Icon(
-                    Icons.border_all_rounded,
+                    Icons.list_rounded,
                     color: primaryColor,
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/productGrid');
+                    Navigator.pushNamed(context, '/productList');
                   },
                 ),
               ],
@@ -63,35 +69,35 @@ class ProductListPage extends StatelessWidget {
       );
     }
 
-    Widget productList() {
-      return Container(
-        padding: EdgeInsets.symmetric(
-          vertical: 20,
-          horizontal: 15,
-        ),
-        child: Column(
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-          ],
-        ),
-      );
-    }
+    // List<String> widgetList = ['A', 'B', 'C'];
+
+    var size = MediaQuery.of(context).size;
+
+    /*24 is for notification bar on Android*/
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
+    final double itemWidth = size.width / 2;
 
     return Scaffold(
       backgroundColor: whiteColor2,
       appBar: appBar(),
-      body: SafeArea(
-        child: ListView(
-          children: [
-            productList(),
+      body: Container(
+        child: GridView.count(
+          primary: false,
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 29,
+          mainAxisSpacing: 20,
+          crossAxisCount: 2,
+          childAspectRatio: (itemWidth / itemHeight),
+          controller: ScrollController(keepScrollOffset: false),
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          children: const [
+            ProductGrid(),
+            ProductGrid(),
+            ProductGrid(),
+            ProductGrid(),
+            ProductGrid(),
+            ProductGrid(),
           ],
         ),
       ),

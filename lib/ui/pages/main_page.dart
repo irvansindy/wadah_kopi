@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:wadah_kopi/shared/theme.dart';
-import 'package:wadah_kopi/ui/pages/product_list_page.dart';
+import 'package:wadah_kopi/ui/pages/product_detail_page.dart';
+import 'package:wadah_kopi/ui/pages/product_grid_page.dart';
+// import 'package:wadah_kopi/ui/pages/product_list_page.dart';
 import 'package:wadah_kopi/ui/pages/home_page.dart';
-import 'package:wadah_kopi/ui/widget/product_grid.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -13,8 +14,8 @@ class MainPage extends StatefulWidget {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    ProductListPage(),
-    ProductGrid(),
+    ProductDetailPage(),
+    ProductGridPage(),
   ];
 
   @override
