@@ -1,11 +1,16 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:wadah_kopi/shared/theme.dart';
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({Key? key}) : super(key: key);
 
+  @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
+
+class _ProductDetailPageState extends State<ProductDetailPage> {
   @override
   Widget build(BuildContext context) {
     Widget content() {
@@ -144,7 +149,6 @@ class ProductDetailPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // ignore: sized_box_for_whitespace
             Container(
               width: 165,
               height: 60,
@@ -174,14 +178,13 @@ class ProductDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-            // ignore: sized_box_for_whitespace
             Container(
               width: 165,
               height: 60,
               child: TextButton(
-                onPressed: () {},
-                // => Navigator.pushNamedAndRemoveUntil(
-                //     context, '/register', (route) => false),
+                onPressed: () {
+                  showSuccessDialog();
+                },
                 style: TextButton.styleFrom(
                   backgroundColor: primaryColor,
                   shape: RoundedRectangleBorder(
@@ -220,6 +223,83 @@ class ProductDetailPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Future<void> showSuccessDialog() async {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) => Container(
+        width: MediaQuery.of(context).size.width - (2 * 30),
+        child: AlertDialog(
+          backgroundColor: whiteColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.close,
+                      color: primaryColor,
+                    ),
+                  ),
+                ),
+                Image.asset(
+                  'assets/success.png',
+                  width: 100,
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  'Hurray',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 18,
+                    fontWeight: semiBold,
+                  ),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  'Item added successfully',
+                  style: secondaryTextStyle,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 154,
+                  height: 55,
+                  child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: primaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: Text(
+                      'View My Cart',
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 16,
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

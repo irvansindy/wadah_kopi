@@ -13,6 +13,7 @@ Color whiteColor2 = Color(0xffffffff);
 Color blackColor = Color(0xff000000);
 Color goldColor = Color(0xFFFFCE45);
 Color transparentColor = Colors.transparent;
+Color redColor = Color(0xFFE02401);
 
 FontWeight light = FontWeight.w300;
 FontWeight regular = FontWeight.w400;
@@ -29,3 +30,4 @@ TextStyle fourthTextStyle = GoogleFonts.poppins(color: fourthColor);
 TextStyle whiteTextStyle = GoogleFonts.poppins(color: whiteColor);
 TextStyle blackTextStyle = GoogleFonts.poppins(color: blackColor);
 TextStyle goldTextStyle = GoogleFonts.poppins(color: goldColor);
+TextStyle redTextStyle = GoogleFonts.poppins(color: redColor);
