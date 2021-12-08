@@ -1,7 +1,8 @@
-// ignore_for_file: avoid_unnecessary_containers
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:wadah_kopi/shared/theme.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CartTile extends StatelessWidget {
   const CartTile({Key? key}) : super(key: key);
@@ -9,8 +10,8 @@ class CartTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
-      height: 170,
+      width: double.infinity,
+      // height: 170,
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
@@ -69,7 +70,7 @@ class CartTile extends StatelessWidget {
           // ignore: sized_box_for_whitespace
           Container(
             width: double.infinity,
-            margin: const EdgeInsets.symmetric(vertical: 2),
+            margin: const EdgeInsets.only(top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -89,55 +90,42 @@ class CartTile extends StatelessWidget {
                     ),
                   ],
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: Icon(
-                        Icons.minimize,
-                        color: primaryColor,
-                        size: 28,
+                Container(
+                  width: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: thirdColor,
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      FaIcon(
+                        FontAwesomeIcons.minus,
+                        color: secondaryColor,
+                        size: 14,
                       ),
-                    ),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    ClipRRect(
-                      child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                            color: primaryColor,
-                            width: 2,
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            '1',
-                            style: primaryTextStyle.copyWith(
-                              fontSize: 14,
-                              fontWeight: medium,
-                            ),
-                          ),
+                      Text(
+                        '1',
+                        style: primaryTextStyle.copyWith(
+                          fontSize: 14,
+                          fontWeight: semiBold,
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Icon(
-                      Icons.add,
-                      color: primaryColor,
-                      size: 28,
-                    ),
-                  ],
-                )
+                      FaIcon(
+                        FontAwesomeIcons.plus,
+                        color: secondaryColor,
+                        size: 14,
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

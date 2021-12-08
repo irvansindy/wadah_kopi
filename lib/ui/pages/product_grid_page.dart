@@ -28,7 +28,7 @@ class ProductGridPage extends StatelessWidget {
                   Icons.arrow_back,
                   color: primaryColor,
                 ),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => Navigator.pushNamed(context, '/main'),
               ),
               title: Container(
                 decoration: BoxDecoration(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wadah_kopi/shared/theme.dart';
 import 'package:wadah_kopi/ui/pages/change_password_page.dart';
 import 'package:wadah_kopi/ui/pages/home_page.dart';
 import 'package:wadah_kopi/ui/pages/main_page.dart';
@@ -19,18 +20,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, routes: {
-      '/': (context) => const SplashPage(),
-      '/started': (context) => const StartedPage(),
-      '/register': (context) => const RegisterPage(),
-      '/signIn': (context) => const SignInPage(),
-      '/main': (context) => const MainPage(),
-      '/changePassword': (context) => const ChangePasswordPage(),
-      '/editProfile': (context) => const ProfilePage(),
-      '/home': (context) => const HomePage(),
-      '/productList': (context) => const ProductListPage(),
-      '/productGrid': (context) => const ProductGridPage(),
-      '/productDetail': (context) => const ProductDetailPage(),
-    });
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        color: whiteColor,
+        routes: {
+          '/': (context) => const SplashPage(),
+          '/started': (context) => const StartedPage(),
+          '/register': (context) => const RegisterPage(),
+          '/signIn': (context) => const SignInPage(),
+          '/main': (context) => const MainPage(),
+          '/changePassword': (context) => const ChangePasswordPage(),
+          '/editProfile': (context) => const ProfilePage(),
+          '/home': (context) => const HomePage(),
+          '/productList': (context) => const ProductListPage(),
+          '/productGrid': (context) => const ProductGridPage(),
+          '/productDetail': (context) => const ProductDetailPage(),
+        });
   }
 }
