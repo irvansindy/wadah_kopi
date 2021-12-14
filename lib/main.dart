@@ -21,20 +21,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        color: whiteColor,
-        routes: {
-          '/': (context) => const SplashPage(),
-          '/started': (context) => const StartedPage(),
-          '/register': (context) => const RegisterPage(),
-          '/signIn': (context) => const SignInPage(),
-          '/main': (context) => const MainPage(),
-          '/changePassword': (context) => const ChangePasswordPage(),
-          '/editProfile': (context) => const ProfilePage(),
-          '/home': (context) => const HomePage(),
-          '/productList': (context) => const ProductListPage(),
-          '/productGrid': (context) => const ProductGridPage(),
-          '/productDetail': (context) => const ProductDetailPage(),
-        });
+      debugShowCheckedModeBanner: false,
+      color: whiteColor,
+      routes: {
+        '/': (context) => const SplashPage(),
+        '/started': (context) => const StartedPage(),
+        '/register': (context) => const RegisterPage(),
+        '/signIn': (context) => const SignInPage(),
+        '/main': (context) => const MainPage(),
+        '/changePassword': (context) => const ChangePasswordPage(),
+        '/editProfile': (context) => const ProfilePage(),
+        '/home': (context) => const HomePage(),
+        '/productList': (context) => const ProductListPage(),
+        '/productGrid': (context) => const ProductGridPage(),
+        '/productDetail': (context) => const ProductDetailPage(),
+      },
+    );
   }
 }

@@ -1,4 +1,7 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wadah_kopi/shared/theme.dart';
 import 'package:wadah_kopi/ui/widget/cart_tile.dart';
 
@@ -32,18 +35,73 @@ class CartPage extends StatelessWidget {
       );
     }
 
+    // ignore: unused_element
     Widget content() {
-      return Container(
-        width: double.infinity,
-        margin: const EdgeInsets.symmetric(
-          horizontal: 15.0,
-          vertical: 15.0,
-        ),
-        child: Column(
+      return ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
           children: const [
             CartTile(),
             CartTile(),
+            CartTile(),
+            CartTile(),
+            CartTile(),
           ],
+      );
+    }
+
+    Widget emptyCart() {
+      return Center(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FaIcon(
+                FontAwesomeIcons.shoppingBasket,
+                color: secondaryColor,
+                size: 150,
+              ),
+              const SizedBox(height: 20.0),
+              Text(
+                'Belum jajan nih',
+                style: secondaryTextStyle.copyWith(
+                  fontSize: 24,
+                  fontWeight: semiBold,
+                ),
+              ),
+              const SizedBox(height: 12.0),
+              Text(
+                'Yuk cari jajanan kesukaan mu.',
+                style: secondaryTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: regular,
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              Container(
+                  width: 220,
+                  height: 60,
+                  margin: const EdgeInsets.only(bottom: 60),
+                  child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: primaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          15,
+                        ),
+                      ),
+                    ),
+                    child: Text(
+                      'Explore Menu',
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 24,
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                  ),
+                )
+            ],
+          ),
         ),
       );
     }
@@ -52,11 +110,8 @@ class CartPage extends StatelessWidget {
       backgroundColor: whiteColor2,
       appBar: appBar(),
       body: SafeArea(
-        child: ListView(
-          children: [
-            content(),
-          ],
-        ),
+        child: emptyCart(),
+        // child: content(),
       ),
     );
   }
