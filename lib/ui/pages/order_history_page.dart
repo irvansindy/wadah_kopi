@@ -1,12 +1,10 @@
-// ignore_for_file: unused_element
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wadah_kopi/shared/theme.dart';
-import 'package:wadah_kopi/ui/widget/transaction_tile.dart';
+import 'package:wadah_kopi/ui/widget/order_history_tile.dart';
 
-class TransactionPage extends StatelessWidget {
-  const TransactionPage({Key? key}) : super(key: key);
+class OrderHistoryPage extends StatelessWidget {
+  const OrderHistoryPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class TransactionPage extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
           ),
           title: Text(
-            'Your Transaction',
+            'Order History',
             style: primaryTextStyle.copyWith(
               fontWeight: semiBold,
               fontSize: 18.0,
@@ -97,10 +95,7 @@ class TransactionPage extends StatelessWidget {
       return ListView(
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         children: const [
-          TransactionTile(),
-          TransactionTile(),
-          TransactionTile(),
-          TransactionTile(),
+          OrderHistoryTile(),
         ],
       );
     }
@@ -109,8 +104,8 @@ class TransactionPage extends StatelessWidget {
       backgroundColor: whiteColor2,
       appBar: appBar(),
       body: SafeArea(
-        child: emptyCart(),
-        // child: content(),
+        // child: emptyCart(),
+        child: content(),
       ),
     );
   }

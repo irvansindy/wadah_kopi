@@ -11,11 +11,10 @@ class CartTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      // height: 170,
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
-        color: whiteColor,
+        color: whiteColor2,
         border: Border.all(
           color: primaryColor,
           width: 2,

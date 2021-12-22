@@ -91,7 +91,7 @@ class TransactionTile extends StatelessWidget {
               Icon(
                 Icons.more_vert_rounded,
                 color: primaryColor,
-              )
+              ),
             ],
           ),
           Divider(

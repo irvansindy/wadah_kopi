@@ -38,20 +38,17 @@ class CartPage extends StatelessWidget {
     // ignore: unused_element
     Widget content() {
       return ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-          children: const [
-            CartTile(),
-            CartTile(),
-            CartTile(),
-            CartTile(),
-            CartTile(),
-          ],
+        padding: const EdgeInsets.all(15.0),
+        children: const [
+          CartTile(),
+        ],
       );
     }
 
     Widget emptyCart() {
       return Center(
         child: Container(
+          color: whiteColor2,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -78,30 +75,160 @@ class CartPage extends StatelessWidget {
               ),
               const SizedBox(height: 20.0),
               Container(
-                  width: 220,
-                  height: 60,
-                  margin: const EdgeInsets.only(bottom: 60),
-                  child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                      backgroundColor: primaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          15,
-                        ),
-                      ),
-                    ),
-                    child: Text(
-                      'Explore Menu',
-                      style: whiteTextStyle.copyWith(
-                        fontSize: 24,
-                        fontWeight: semiBold,
+                width: 220,
+                height: 60,
+                margin: const EdgeInsets.only(bottom: 60),
+                child: TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        15,
                       ),
                     ),
                   ),
-                )
+                  child: Text(
+                    'Explore Menu',
+                    style: whiteTextStyle.copyWith(
+                      fontSize: 24,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
+        ),
+      );
+    }
+
+    Widget detailPrice() {
+      return Container(
+        height: 260,
+        padding: const EdgeInsets.all(15.0),
+        color: whiteColor2,
+        child: Column(
+          children: [
+            Text(
+              'Details',
+              style: primaryTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: semiBold,
+              ),
+            ),
+            Divider(
+              thickness: 1,
+              color: secondaryColor,
+            ),
+            const SizedBox(height: 5.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Price',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 14,
+                    fontWeight: medium,
+                  ),
+                ),
+                Text(
+                  'Rp. 100,000',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 14,
+                    fontWeight: semiBold,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Tax',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 14,
+                    fontWeight: medium,
+                  ),
+                ),
+                Text(
+                  '5%',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 14,
+                    fontWeight: semiBold,
+                    letterSpacing: 2,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Service Fee',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 14,
+                    fontWeight: medium,
+                  ),
+                ),
+                Text(
+                  '2%',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 14,
+                    fontWeight: semiBold,
+                    letterSpacing: 2,
+                  ),
+                ),
+              ],
+            ),
+            Divider(
+              thickness: 1,
+              color: secondaryColor,
+            ),
+            const SizedBox(height: 5.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Grand Total',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 20,
+                    fontWeight: bold,
+                  ),
+                ),
+                Text(
+                  'Rp. 107,000',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 20,
+                    fontWeight: semiBold,
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              width: double.infinity,
+              height: 50,
+              margin: const EdgeInsets.only(top: 20),
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  backgroundColor: secondaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      15,
+                    ),
+                  ),
+                ),
+                child: Text(
+                  'Checkout',
+                  style: whiteTextStyle.copyWith(
+                    fontSize: 24,
+                    fontWeight: semiBold,
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       );
     }
@@ -109,10 +236,8 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: whiteColor2,
       appBar: appBar(),
-      body: SafeArea(
-        child: emptyCart(),
-        // child: content(),
-      ),
+      body: content(),
+      bottomNavigationBar: detailPrice(),
     );
   }
 }

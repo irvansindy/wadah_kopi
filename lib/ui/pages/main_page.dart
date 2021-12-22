@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:wadah_kopi/shared/theme.dart';
 import 'package:wadah_kopi/ui/pages/cart_page.dart';
 import 'package:wadah_kopi/ui/pages/home_page.dart';
-import 'package:wadah_kopi/ui/pages/transaction_page.dart';
+import 'package:wadah_kopi/ui/pages/order_history_page.dart';
+// import 'package:wadah_kopi/ui/pages/transaction_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -15,7 +16,8 @@ class MainPage extends StatefulWidget {
   static List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     CartPage(),
-    TransactionPage(),
+    // TransactionPage(),
+    OrderHistoryPage(),
   ];
 
   @override
@@ -34,7 +36,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteColor,
+      backgroundColor: whiteColor2,
       body: Center(
         child: MainPage._widgetOptions.elementAt(_selectedIndex),
       ),
@@ -65,7 +67,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: whiteColor,
+        selectedItemColor: whiteColor2,
         onTap: _onItemTapped,
       ),
     );
