@@ -3,8 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:wadah_kopi/shared/theme.dart';
 import 'package:wadah_kopi/ui/pages/cart_page.dart';
+import 'package:wadah_kopi/ui/pages/detail_transaction.dart';
 import 'package:wadah_kopi/ui/pages/home_page.dart';
-import 'package:wadah_kopi/ui/pages/order_history_page.dart';
+// import 'package:wadah_kopi/ui/pages/order_history_page.dart';
 // import 'package:wadah_kopi/ui/pages/transaction_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -17,7 +18,8 @@ class MainPage extends StatefulWidget {
     HomePage(),
     CartPage(),
     // TransactionPage(),
-    OrderHistoryPage(),
+    // OrderHistoryPage(),
+    DetailTransaction(),
   ];
 
   @override

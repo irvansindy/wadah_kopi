@@ -236,8 +236,9 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: whiteColor2,
       appBar: appBar(),
-      body: content(),
-      bottomNavigationBar: detailPrice(),
+      // body: content(),
+      body: emptyCart(),
+      // bottomNavigationBar: detailPrice(),
     );
   }
 }
