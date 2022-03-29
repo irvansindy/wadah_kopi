@@ -33,6 +33,7 @@ class OrderHistoryPage extends StatelessWidget {
       );
     }
 
+    // ignore: unused_element
     Widget emptyCart() {
       return Center(
         // ignore: avoid_unnecessary_containers

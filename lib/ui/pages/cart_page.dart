@@ -103,6 +103,7 @@ class CartPage extends StatelessWidget {
       );
     }
 
+    // ignore: unused_element
     Widget detailPrice() {
       return Container(
         height: 260,

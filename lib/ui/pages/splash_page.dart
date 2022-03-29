@@ -19,7 +19,6 @@ class _SplashPageState extends State<SplashPage> {
       Navigator.of(context).pushReplacementNamed('/started');
     });
     super.initState();
-    
   }
 
   @override
@@ -32,30 +31,30 @@ class _SplashPageState extends State<SplashPage> {
           child: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              Container(
-                height: 300,
-                width: 300,
-                margin: EdgeInsets.only(bottom: 30),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/image_splash.png'),
-                    fit: BoxFit.contain,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                Container(
+                  height: 300,
+                  width: 300,
+                  margin: EdgeInsets.only(bottom: 30),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/image_splash.png'),
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
-              ),
-              Text(
-                'Wadah Kopi',
-                style: secondaryTextStyle.copyWith(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 6,
+                Text(
+                  'Wadah Kopi',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 6,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
         ),
       ),
     );

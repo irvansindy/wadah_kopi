@@ -263,8 +263,54 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget drawer() {
+      return Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: whiteColor,
+                  fontSize: 18,
+                  fontWeight: semiBold,
+                ),
+              ),
+              decoration: BoxDecoration(
+                color: primaryColor,
+              ),
+            ),
+            const ListTile(
+              leading: Icon(Icons.message),
+              title: Text('Messages'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('Profile'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: whiteColor2,
+      appBar: AppBar(
+        backgroundColor: whiteColor,
+        elevation: 1.0,
+        title: Text(
+          'Wadah Kopi',
+          style: primaryTextStyle.copyWith(
+            fontSize: 18,
+            fontWeight: semiBold,
+          ),
+        ),
+      ),
       body: SafeArea(
         child: ListView(
           children: [
@@ -288,6 +334,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      drawer: drawer(),
     );
   }
 }
