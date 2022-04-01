@@ -15,7 +15,7 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Timer(const Duration(seconds: 6), () {
+    Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacementNamed('/started');
     });
     super.initState();

@@ -4,11 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:wadah_kopi/shared/theme.dart';
 import 'package:wadah_kopi/ui/widget/product_tile.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
   Widget build(BuildContext context) {
+    // ignore: unused_element
     Widget header() {
       return Container(
         margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -267,31 +275,89 @@ class HomePage extends StatelessWidget {
       return Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
+          // ignore: prefer_const_literals_to_create_immutables
           children: [
-            DrawerHeader(
-              child: Text(
-                'Drawer Header',
-                style: TextStyle(
-                  color: whiteColor,
-                  fontSize: 18,
-                  fontWeight: semiBold,
-                ),
-              ),
+            UserAccountsDrawerHeader(
               decoration: BoxDecoration(
                 color: primaryColor,
               ),
+              currentAccountPicture: Icon(
+                Icons.account_circle_rounded,
+                color: whiteColor,
+                size: 60,
+              ),
+              accountEmail: Text(
+                'irvanmuhammad22@gmail.com',
+                style: whiteTextStyle.copyWith(
+                  fontSize: 12,
+                  fontWeight: light,
+                ),
+              ),
+              accountName: Text(
+                'Irvan Muhammad',
+                style: whiteTextStyle.copyWith(
+                  fontSize: 14,
+                  fontWeight: semiBold,
+                ),
+              ),
             ),
             const ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Messages'),
+              leading: Icon(Icons.edit),
+              title: Text('Edit Profile'),
             ),
             const ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
+              leading: Icon(Icons.edit),
+              title: Text('Change Password'),
             ),
             const ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              leading: Icon(Icons.history_edu_rounded),
+              title: Text('Order History'),
+            ),
+            const Divider(
+              height: 25,
+              thickness: 2,
+            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(top: 10, left: 30),
+            //   child: Text(
+            //     'Log Out',
+            //     style: primaryTextStyle.copyWith(
+            //       fontSize: 18,
+            //       fontWeight: semiBold,
+            //     ),
+            //   ),
+            // ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 140,
+                    height: 55,
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 10,
+                    ),
+                    child: TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        backgroundColor: secondaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                            15,
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        'Log Out',
+                        style: whiteTextStyle.copyWith(
+                          fontSize: 22,
+                          fontWeight: semiBold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -300,13 +366,27 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: whiteColor2,
+      key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: whiteColor,
-        elevation: 1.0,
+        backgroundColor: primaryColor,
+        elevation: 0.5,
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 15),
+            child: IconButton(
+              icon: const Icon(
+                Icons.account_circle_rounded,
+                color: Colors.white,
+                size: 45,
+              ),
+              onPressed: () => _scaffoldKey.currentState?.openEndDrawer(),
+            ),
+          ),
+        ],
         title: Text(
           'Wadah Kopi',
-          style: primaryTextStyle.copyWith(
-            fontSize: 18,
+          style: whiteTextStyle.copyWith(
+            fontSize: 26,
             fontWeight: semiBold,
           ),
         ),
@@ -324,7 +404,7 @@ class HomePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  header(),
+                  // header(),
                   favoriteItem(),
                   filterChips(),
                 ],
@@ -334,7 +414,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      drawer: drawer(),
+      endDrawer: drawer(),
     );
   }
 }
